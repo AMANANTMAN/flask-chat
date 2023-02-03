@@ -1,26 +1,19 @@
-import os
-from flask import Flask, render_template
-from flask_socketio import SocketIO
-
+from flask import Flask,render_template,request
+ 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-socketio = SocketIO(app)
-
-
-@app.route('/')
-def sessions():
-    return render_template('session.html')
-
-
-def messageReceived(methods=['GET', 'POST']):
-    print('message was received!!!')
-
-
-@socketio.on('my event')
-def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('received my event: ' + str(json))
-    socketio.emit('my response', json, callback=messageReceived)
+ 
+@app.route('/form')
+def form():
+    return render_template('form.html')
+ 
+@app.route('/data/', methods = ['POST', 'GET'])
+def data():
+    if request.method == 'GET':
+        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+    if request.method == 'POST':
+        form_data = request.form
+        return render_template('data.html',form_data = form_data)
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    app.run()
