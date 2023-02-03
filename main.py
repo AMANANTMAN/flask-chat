@@ -1,6 +1,9 @@
 from flask import Flask,render_template,request
+import chess
  
 app = Flask(__name__)
+
+board = chess.Board()
 
 @app.route('/')
 def home_page():
