@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 board = chess.Board()
 
-def updateBoard()
+def updateBoard():
   print_board = ''
   for i in range(0, 64, 8):
     print_board += ' '.join(board.split(' ')[i:i+8]) + '\n'
