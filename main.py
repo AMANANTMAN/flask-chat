@@ -5,6 +5,10 @@ app = Flask(__name__)
 
 board = chess.Board()
 
+print_board = ''
+for i in range(0, 64, 8):
+    print_board += ' '.join(board.split(' ')[i:i+8]) + '\n'
+
 @app.route('/')
 def home_page():
     return render_template('index.html', embed=board)
