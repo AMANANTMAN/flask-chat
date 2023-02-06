@@ -7,8 +7,7 @@ board = chess.Board()
 
 @app.route('/')
 def home_page():
-    example_embed='This string is from python'
-    return render_template('index.html', embed=example_embed)
+    return render_template('index.html', embed=board)
  
 @app.route('/form')
 def form():
