@@ -6,9 +6,10 @@ app = Flask(__name__)
 board = chess.Board()
 
 def updateBoard():
+  temp = board.split(" ")
   print_board = ''
   for i in range(0, 64, 8):
-    print_board += ' '.join(board.split(' ')[i:i+8]) + '\n'
+    print_board += ' '.join(temp[i:i+8]) + '\n'
   return print_board
 
 @app.route('/')
