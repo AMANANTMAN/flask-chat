@@ -21,19 +21,13 @@ def updateBoard():
           foo2.append(thing)
       foo.append(foo2)
     return foo
-  new_board = make_matrix(board)
-  print_board = ""
-  for list in new_board:
-    for i in list:
-      print_board += i+" " 
-    print_board += "\n"
 
-  return print_board
+  
 
 @app.route('/')
 def home_page():
   embed = updateBoard()
-  return render_template('index.html', embed=embed)
+  return render_template('index.html', embed1=embed[0], embed2=embed[1], embed3=embed[2], embed4=embed[3], embed5=embed[4],embed6=embed[5],embed7=embed[6],embed8=embed[7])
  
 @app.route('/form')
 def form():
