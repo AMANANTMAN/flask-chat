@@ -27,7 +27,7 @@ def updateBoard():
 
 @app.route('/')
 def home_page():
-  embed = updateBoard()
+  embed = board
   return render_template('index.html', content_type="text/plain",embed=embed)
  
 @app.route('/form')
