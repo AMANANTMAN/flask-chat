@@ -37,14 +37,6 @@ def home_page():
   embed = test
   return render_template('index.html', content_type="text/plain",embed=embed)
 
-@app.route("/img/")
-def img():
-  file = "https://backscattering.de/web-boardimage/board.png?fen=5r1k/1b4pp/3pB1N1/p2Pq2Q/PpP5/6PK/8/8&lastMove=f4g6&check=h8&arrows=Ge6g8,Bh7&squares=a3,c3"
-  img = requests.get(file)
-  imgIO = StringIO
-  img.write_png(imgIO, noscale=True) # save to memory
-  imgIO.seek(0)
-  return send_file(imgIO, mimetype='image/png')
  
 @app.route('/form')
 def form():
