@@ -35,7 +35,7 @@ test = test.split("\n")
 def home_page():
   embed = test
   link = "https://backscattering.de/web-boardimage/board.svg?fen="+board.fen()
-  return render_template('index.html', content_type="text/plain",embed=embed, link=link
+  return render_template('index.html', content_type="text/plain",embed=embed, link=link)
  
 @app.route('/form')
 def form():
