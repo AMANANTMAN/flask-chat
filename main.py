@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request, send_file
 import chess
+import chess.pgn
 import requests
  
 app = Flask(__name__)
@@ -33,8 +34,10 @@ test = test.split("\n")
 
 @app.route('/')
 def home_page():
+  board=chess.Board()
+  fen=board.fen()
   embed = test
-  link = "https://backscattering.de/web-boardimage/board.svg?fen="+board.fen()
+  link = "https://backscattering.de/web-boardimage/board.svg?fen="+str(fen)
   return render_template('index.html', content_type="text/plain",embed=embed, link=link)
  
 @app.route('/form')
