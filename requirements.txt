@@ -5,4 +5,4 @@ chess
 gunicorn
 eventlet
 requests
-StringIO
+io

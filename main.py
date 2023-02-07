@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request, send_file
-from StringIO import StringIO
+from io import StringIO
 import chess
 import requests
  
