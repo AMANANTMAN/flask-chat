@@ -1,5 +1,7 @@
 <body>
 <h1> Python Fetch Example</h1>
-<p id='embed'>{{embed}}</p>
+{% for para in embed %}
+  <p>{{para}}</p>
+{% endfor %}
 <p id='mylog'/>
 <body>

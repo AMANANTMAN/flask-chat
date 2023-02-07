@@ -26,6 +26,8 @@ for board in make_matrix(board):
   for item in board:
     test += item + " "
   test += "\n"
+
+test = test.split("\n")
   
 
 @app.route('/')
